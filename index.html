@@ -1,0 +1,277 @@
+<<!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <section>
+      <h1>
+        Simple pricing
+      </h1>
+      <input type="text" class="mailbox"placeholder="Your Work Email"><button class="greenbox">Get Started Free</button><br>
+      <h2>
+        Sign-up for our 30-days trial,No credit card required.
+      </h2>
+      <div class="price-card">
+        <div class="stats">
+          <div class="stats_views">
+            <span></span>
+            <hr>of Users
+          </div>
+          <div class="stats_price">
+            <span></span>
+            <hr>pre months
+          </div>
+
+        </div>
+        <div class="range-container">
+          <input type="range" id="range" name="range" min="1" max="50">
+        </div>
+        <div class="billing">
+          Monthly Billing
+          <label for="billing" class="checkbox">
+                    <input type="checkbox" id="billing">
+                    <span class="checkbox_slider"></span>
+                </label>
+          Yearly Billing
+          <span class="billing_discount">25% discount</span>
+        </div>
+        <div class="trial">
+          <ul>
+            <li>Unlimited websites</li>
+            <li>100% data ownership</li>
+            <li>Email reports</li>
+          </ul>
+          <button type="button" aria-label="Start my trial">Start my trial</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const range=document.getElementById('range');
+        const discount=document.getElementById('billing');
+        const rangePricing={
+            1:{
+                views:'1',
+                price:4.99
+            },
+            2:{
+                views:'2',
+                price:9.98
+            },
+            3:{
+                views:'3',
+                price:14.97
+            },
+            4:{
+                views:'4',
+                price:19.96
+            },
+            5:{
+                views:'5',
+                price:24.95
+            },
+            6:{
+                views:'6',
+                price:29.94
+            },
+            7:{
+                views:'7',
+                price:34.93
+            },
+            8:{
+                views:'8',
+                price:39.92
+            },
+            9:{
+                views:'9',
+                price:44.91
+            },
+            10:{
+                views:'10',
+                price:49.9
+            },
+            11:{
+                views:'11',
+                price:54.89
+            },
+            12:{
+                views:'12',
+                price:59.88
+            },
+            13:{
+                views:'13',
+                price:64.87
+            },
+            14:{
+                views:'14',
+                price:69.86
+            },
+            15:{
+                views:'15',
+                price:74.85
+            },
+            16:{
+                views:'16',
+                price:79.84
+            },
+            17:{
+                views:'17',
+                price:84.83
+            },
+            18:{
+                views:'18',
+                price:89.82
+            },
+            19:{
+                views:'19',
+                price:94.81
+            },
+            20:{
+                views:'20',
+                price:99.8
+            },
+            21:{
+                views:'21',
+                price:104.79
+            },
+            22:{
+                views:'22',
+                price:109.78
+            },
+            23:{
+                views:'23',
+                price:114.77
+            },
+            24:{
+                views:'24',
+                price:119.76
+            },
+            25:{
+                views:'25',
+                price:124.75
+            },
+            26:{
+                views:'26',
+                price:129.74
+            },
+            27:{
+                views:'27',
+                price:134.73
+            },
+            28:{
+                views:'28',
+                price:139.72
+            },
+            29:{
+                views:'29',
+                price:144.71
+            },
+            30:{
+                views:'30',
+                price:149.7
+            },
+            31:{
+                views:'31',
+                price:154.69
+            },
+            32:{
+                views:'32',
+                price:159.68
+            },
+            33:{
+                views:'33',
+                price:164.67
+            },
+            34:{
+                views:'34',
+                price:169.66
+            },
+            35:{
+                views:'35',
+                price:174.65
+            },
+            36:{
+                views:'36',
+                price:179.64
+            },
+            37:{
+                views:'37',
+                price:184.63
+            },
+            38:{
+                views:'38',
+                price:189.62
+            },
+            39:{
+                views:'39',
+                price:194.61
+            },
+            40:{
+                views:'40',
+                price:199.6
+            },
+            41:{
+                views:'41',
+                price:204.59
+            },
+            42:{
+                views:'42',
+                price:209.58
+            },
+            43:{
+                views:'43',
+                price:214.57
+            },
+            44:{
+                views:'44',
+                price:219.56
+            },
+            45:{
+                views:'45',
+                price:224.55
+            },
+            46:{
+                views:'46',
+                price:229.54
+            },
+            47:{
+                views:'47',
+                price:234.53
+            },
+            48:{
+                views:'48',
+                price:239.52
+            },
+            49:{
+                views:'49',
+                price:244.51
+            },
+            50:{
+                views:'50',
+                price:249.5
+            }
+        }
+        showCurrentPrice(+range.value);
+
+        function showCurrentPrice(value){
+            const currentPrice=rangePricing[value];
+            const price=discount.checked ? currentPrice.price-currentPrice.price * .25 : currentPrice.price;
+            document.querySelector('.stats_views span').innerHTML=currentPrice.views;
+            document.querySelector('.stats_price span').innerHTML=`$${price.toFixed(2)}`;
+        }
+        range.addEventListener('change',(event)=>{
+            showCurrentPrice(+event.target.value);
+        })
+        discount.addEventListener('change',()=>{
+            showCurrentPrice(+range.value);
+        })
+    </script>
+  </body>
+
+  </html>
